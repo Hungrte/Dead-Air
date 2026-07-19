@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://r61s5vlrsu1c"]
+
+[ext_resource type="Script" uid="uid://dy1wgg7p4r05s" path="res://Scenes/radio'.gd" id="1_be5hu"]
+[ext_resource type="AudioStream" uid="uid://cudb5401qumb" path="res://Assets/Sounds/dragon-studio-radio-static-323621.wav" id="2_6i80h"]
+
+[node name="Radio\'" type="Node3D" unique_id=1573421548]
+script = ExtResource("1_be5hu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1472879525]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(0.18762207, 0.3269043, 0.099432126)
+
+[node name="Static" type="AudioStreamPlayer3D" parent="." unique_id=156317086]
+stream = ExtResource("2_6i80h")
+volume_db = -2.243

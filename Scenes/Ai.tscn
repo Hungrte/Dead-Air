@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://0dki40l7fcpq"]
+
+[ext_resource type="Script" uid="uid://b1rees82lrw15" path="res://Scenes/NewAI.gd" id="1_wbapn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 2.2050781, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 4.5510435
+
+[node name="EnemyAI" type="CharacterBody3D" unique_id=555603197]
+script = ExtResource("1_wbapn")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1101971854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5942383, 0)
+size = Vector3(1, 2.1884766, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=53445024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60253906, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=391127166]
+
+[node name="Hearing range" type="CollisionShape3D" parent="Area3D" unique_id=87812290]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="Timers" type="Node" parent="." unique_id=440383025]
+
+[node name="suspicionTime" type="Timer" parent="Timers" unique_id=144388420]
+wait_time = 10.0
+one_shot = true
+
+[node name="searchtimer" type="Timer" parent="Timers" unique_id=1685541822]
+wait_time = 10.0
+one_shot = true
+
+[node name="chasetimer" type="Timer" parent="Timers" unique_id=1024999629]
+wait_time = 15.0
+one_shot = true
+
+[node name="stuntime" type="Timer" parent="Timers" unique_id=1032573517]
+wait_time = 5.0
+
+[node name="sensetimer" type="Timer" parent="Timers" unique_id=586634378]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timers/suspicionTime" to="." method="_on_suspicion_time_timeout"]
+[connection signal="timeout" from="Timers/searchtimer" to="." method="_on_searchtimer_timeout"]
+[connection signal="timeout" from="Timers/stuntime" to="." method="_on_stuntime_timeout"]
+[connection signal="timeout" from="Timers/sensetimer" to="." method="_on_sensetimer_timeout"]

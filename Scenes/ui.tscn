@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://53en4r2omobi"]
+
+[ext_resource type="Script" uid="uid://ba637yxhl87d8" path="res://Scenes/ui.gd" id="1_k665g"]
+
+[node name="UI" type="Control" unique_id=2015534337]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_k665g")
+
+[node name="Label" type="Label" parent="." unique_id=568011783]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 189.0
+offset_bottom = 81.0
+text = "[Radio: Off]"
+
+[node name="Label2" type="Label" parent="." unique_id=1318824509]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 34.0
+offset_right = 190.0
+offset_bottom = 104.0
+text = "[Signal: ]"
